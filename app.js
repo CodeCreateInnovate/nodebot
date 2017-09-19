@@ -18,7 +18,13 @@ var connector = new builder.ChatConnector({
 });
 
 // Listen for messages from users 
-server.post('/api/messages', connector.listen());
+// server.post('/api/messages', connector.listen());
+
+//Direct to index.html web page
+server.get('/', restify.serveStatic({
+ directory: __dirname,
+ default: '/index.html'
+}));
 
 
 
