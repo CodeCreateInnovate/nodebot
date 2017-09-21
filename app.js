@@ -37,16 +37,17 @@ var bot = new builder.UniversalBot(connector, [
 ]);
 
 
-//Send Proactive Message to Start Conversation on connect.
-bot.on('conversationUpdate', function (message) {
-    if (message.membersAdded) {
-        message.membersAdded.forEach(function (identity) {
-            if (identity.id === message.address.bot.id) {
-                bot.beginDialog(message.address, '/');
-            }
-        });
-    }
-});
+
+// //Send Proactive Message to Start Conversation on connect.
+// bot.on('conversationUpdate', function (message) {
+//     if (message.membersAdded) {
+//         message.membersAdded.forEach(function (identity) {
+//             if (identity.id === message.address.bot.id) {
+//                 bot.beginDialog(message.address, '/');
+//             }
+//         });
+//     }
+// });
 
 //===============================================================
 //   --------------   Help Dialog --------------         
@@ -485,9 +486,9 @@ bot.dialog('iosUi', [
         var iosUICards = getiosUICardsAttachments();
 
                     // create reply with Carousel AttachmentLayout
-                    var iosUIReply = new builder.Message(session)
-                    .attachmentLayout(builder.AttachmentLayout.carousel)
-                    .attachments(iosUICards);
+            var iosUIReply = new builder.Message(session)
+            .attachmentLayout(builder.AttachmentLayout.carousel)
+            .attachments(iosUICards);
 
             session.send(iosUIReply); 
             session.send("We Hope This Helps! If you have addional questions please feel free to email our team! We look forward to hearing from you!")
@@ -934,68 +935,6 @@ function getAngularCardsAttachments(session) {
         ])
     ];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //===============================================================
